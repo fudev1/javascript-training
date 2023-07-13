@@ -21,6 +21,6 @@ function createSquare(){
 
 
 // btn reset
-reset.addEventListener("click", function(){
+    reset.addEventListener("click", function(){
     document.getElementById("preview").innerHTML = ""
 })
