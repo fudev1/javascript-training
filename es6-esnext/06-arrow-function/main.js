@@ -14,3 +14,4 @@ const fullPrenoms = prenoms.map(prenom => prenom + "Van Denberg");
 const fullPrenoms2 = prenoms.map(prenom => {
     return prenom + "Dupont"
 })
+
