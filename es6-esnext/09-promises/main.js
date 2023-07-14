@@ -126,24 +126,90 @@ getPostById(2).then(res => getAuthor(res))
 // Math.round(math.random()*1000) arrondi un nbre 
 
 
-const nbrRandom = Math.round(Math.random()*1000);
-console.log(nbrRandom)
+// const nbrRandom = Math.round(Math.random()*1000);
+// console.log(nbrRandom)
 
 
 
 
-function getNumber(nbr){
+// function getNumber(nbr){
+//     return new Promise((resolve, reject) => {
+//         if (nbr >= 200 && nbr <= 450){
+//             reject(new Error("Nope"))
+//         }else {
+//             setTimeout(function() {
+//                 resolve("Dragon")    
+//             }, 2000);
+//         }              
+//     })
+// }
+
+
+// getNumber(nbrRandom).then(res => console.log(res))
+//             .catch(err => console.error(err));
+
+
+
+
+// vous etes une équipe d'ingénieur et vous, venez de trouver un moyen révolutionnaire d'afficher 
+// une addition avec une technologie proche de quantique : la promesse !!
+
+// créer une fonction va prendre en paramètre qui est un nombre et qui retourne une promesse 
+// si le nombre dépasse 50, la machine s'emballe et passe dans le reject directement 
+// si le nombre est inférieur à 50, la machine prend 2 secondes (settimeout) pour effectuer le calcul incroyablement complexe de + 10
+// le resultat de l'opération devra etre retourné dans le resolve et le reject
+
+// cette opération devra etre effectué 5 fois de suite en partant de 20
+
+
+
+function theQuanticCalculayte(nbr){
     return new Promise((resolve, reject) => {
-        if (nbr >= 200 && nbr <= 450){
-            reject(new Error("Nope"))
-        }else {
-            setTimeout(function() {
-                resolve("Dragon")    
-            }, 2000);
-        }              
+        if (nbr > 50){
+            reject(new Error(nbr + "BOOUUUUMMM c'est pétéééééé"))
+        } else {
+            setTimeout(() => {
+                resolve(nbr + 10);
+            }, 2000)
+        }
     })
 }
 
 
-getNumber(nbrRandom).then(res => console.log(res))
-            .catch(err => console.error(err))
+theQuanticCalculayte(20).then(res => {
+    console.log(res);
+    return theQuanticCalculayte(res)
+}).then(res => {
+    console.log(res);
+    return theQuanticCalculayte(res)
+}).then(res => {
+    console.log(res);
+    return theQuanticCalculayte(res)
+}).then(res => {
+    console.log(res);
+    return theQuanticCalculayte(res)
+})
+
+
+
+let number = 20
+
+  
+  for (let i = 0; i < 5; i++) {
+    theQuanticCalculayte(number)
+      .then(res => {
+            console.log(res);
+            number = res
+            return theQuanticCalculayte(res)
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+  
+
+
+
+
+
+ 
